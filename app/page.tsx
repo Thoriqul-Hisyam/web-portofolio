@@ -45,10 +45,10 @@ export default function ModernPortfolio() {
       if (current) setActiveSection(current);
     };
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setMousePos({
-        x: e.clientX / window.innerWidth,
-        y: e.clientY / window.innerHeight,
+        x: (e as MouseEvent).clientX / window.innerWidth,
+        y: (e as MouseEvent).clientY / window.innerHeight,
       });
     };
 
@@ -60,7 +60,7 @@ export default function ModernPortfolio() {
     };
   }, []);
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
     setMobileMenuOpen(false);
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
